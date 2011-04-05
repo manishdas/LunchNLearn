@@ -7,6 +7,23 @@ gem 'rails', '3.0.5'
 
 gem 'sqlite3'
 
+gem 'irbtools'
+gem 'annotate'
+gem 'formtastic' , '~>1.2.0'
+gem 'devise'
+
+group :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'machinist', '>=2.0.0.beta1'
+  gem 'ffaker'
+
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'cucumber-rails'
+  gem 'launchy'
+  gem 'database_cleaner'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
