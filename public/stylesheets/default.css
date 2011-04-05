@@ -64,6 +64,8 @@ img.left {margin: 0 18px 6px 0;}
 .container {
   background: url(../images/bgcontainer.jpg) repeat-y center top;
   margin: 0 auto;
+  margin-top: 15px ;
+  margin-bottom: 15px ;
   width: 736px;
 }
 
@@ -127,8 +129,29 @@ img.left {margin: 0 18px 6px 0;}
   height: 42px;
 }
 
+/* sign in and up */
+.signing {
+  margin: 0 24px;
+  text-align:center;
+  padding-top: 10px ;
+  }
+
+.signing a {
+  color: #9C6835 ;
+  font: normal 1.9em serif;
+  line-height: 50px;
+  margin: 0 16px;
+  text-decoration: none;
+}
+.signing a:hover,.navigation #selected {
+  color: #2C3111;
+}
+
 /* content item */
-.item {clear: both;}
+.item {
+  clear: both;
+  overflow:hidden ;
+}
 
 .item img {border: 1px dashed #8A6;}
 

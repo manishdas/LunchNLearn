@@ -1,5 +1,7 @@
 class PresentationTopicsController < ApplicationController
 
+ before_filter :authenticate_user!
+
   def index
     @users = User.all
   end
@@ -14,7 +16,7 @@ class PresentationTopicsController < ApplicationController
   def show
   end
 
-  def delete
+  def destroy
   end
 
 

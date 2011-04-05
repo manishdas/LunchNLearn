@@ -2,6 +2,10 @@ LunchNLearn::Application.routes.draw do
 
   devise_for :users
 
+  resources :users do
+    resources :presentation_topics
+  end
+
   root :to => "home#index"
 
 

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def index
     @users = User.all
   end
@@ -11,7 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:user])
     if @user.save
-      redirect_to users_path, :notice => "You have signed up successfully"
+      redirect_to users_path, :notice => "You have signed up successfully ! "
     else
       render "new"
     end
@@ -21,8 +23,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def delete
+  def destroy
+    @user = User.find(params[:id])
+    if @user.delete
+      redirect_to users_path, :method => :delete , :confirm => "Are you sure ? "
+    else
+      redirect_to users_path
+    end
   end
-
 
 end
