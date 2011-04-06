@@ -1,2 +1,10 @@
-<h1>PresentationTopics#index</h1>
-<p>Find me in app/views/presentation_topics/index.html.erb</p>
+
+<div class = "content">
+    <div class="spacer"></div>
+
+    <div class="item">
+        <p>all topics haru</p>
+        <%= render @presentation_topics %>
+    </div>
+
+    <%= link_to "Back to Index", users_path %>

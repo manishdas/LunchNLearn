@@ -3,11 +3,13 @@ LunchNLearn::Application.routes.draw do
   devise_for :users
 
   resources :users do
+    get 'topics_index' => 'presentation_topics#topics_index'
     resources :presentation_topics
   end
 
-  root :to => "home#index"
+  resources :presentation_topics, :only => :index
 
+  root :to => "users#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -65,4 +67,5 @@ LunchNLearn::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+
 end
