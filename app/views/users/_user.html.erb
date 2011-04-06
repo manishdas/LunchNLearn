@@ -1,7 +1,7 @@
 <ul>
-    Speaker: <%= user.email%>
+    Speaker: <%= link_to user.email, user_topics_index_path(user)%>
     <% user.presentation_topics.each do |topic| %>
-        <li> <%= topic.title %> </li>
+        <li> <%= link_to topic.title, user_presentation_topic_path(user,topic) %> </li>
     <% end %>
     <%= link_to "See All", user_topics_index_path(user) %>
 </ul>

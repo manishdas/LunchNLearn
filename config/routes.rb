@@ -4,7 +4,9 @@ LunchNLearn::Application.routes.draw do
 
   resources :users do
     get 'topics_index' => 'presentation_topics#topics_index'
-    resources :presentation_topics
+    resources :presentation_topics do
+      get 'vote'
+    end
   end
 
   resources :presentation_topics, :only => :index

@@ -1,6 +1,6 @@
 class PresentationTopicsController < ApplicationController
 
- before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def index
     @presentation_topics =  PresentationTopic.all
@@ -23,6 +23,7 @@ class PresentationTopicsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
+    @presentation_topic = @user.presentation_topics.find(params[:id])
   end
 
   def destroy
@@ -31,6 +32,22 @@ class PresentationTopicsController < ApplicationController
   def topics_index
     @user = User.find(params[:user_id])
     @presentation_topics = @user.presentation_topics.all
+  end
+
+  def vote
+    @user = User.find(params[:user_id])
+    @presentation_topic = @user.presentation_topics.find(params[:presentation_topic_id])
+
+    if @user.votes_remaining > 0
+      @presentation_topic.votes += 1
+      if @presentation_topic.update_attributes(params[:presentation_topic])
+        @user.votes_remaining -= 1
+        @user.update_attributes(params[:user])
+        redirect_to user_presentation_topic_path(@user,@presentation_topic), :notice => "You have voted for this topic ! "
+      end
+    else
+      redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You've No Votes Remaining !! "
+    end
   end
 
 end

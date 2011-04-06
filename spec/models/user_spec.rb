@@ -4,9 +4,10 @@ describe User do
 
   it { should have_many :presentation_topics }
 
-  it { should validate_presence_of :username }
-  it { should validate_uniqueness_of :username }
+  # it { should validate_presence_of :username }
+  # it { should validate_uniqueness_of :username }
   it { should validate_presence_of :email }
+  it { should validate_uniqueness_of :email }
 
   it "should  have few unique details" do
     user = User.make!

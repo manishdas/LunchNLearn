@@ -1,5 +1,5 @@
 <ul>
-    <li> <%= presentation_topic.title %> </li>
-    <% @user = User.find(presentation_topic.user_id) %>
-    posted by : <%=@user.email %>
+    <% user = User.find(presentation_topic.user_id) %>
+    <li> <%= link_to presentation_topic.title, user_presentation_topic_path(user,presentation_topic) %> </li>
+    posted by : <%=user.email %>
 </ul>
