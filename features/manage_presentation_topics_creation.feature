@@ -9,7 +9,7 @@ Feature: Manage New Presentation Topics Creation
       And I follow "Wanna Speak? Post a topic"
       And I fill in "Title" with "html 5"
       And I fill in "Description" with "html 5 with css 3"
-      And I fill in "Duration (in minutes)" with "25"
+      And I fill in "Presentation Duration (in minutes)" with "25"
       And I press "Create"
       Then 1 presentation_topic should exist
       And I should see "You have posted a Presentation Topic successfully ! "

@@ -11,7 +11,6 @@ feature "Articles", %q{
     end
 
     scenario "User index", :js => true do
-
       visit new_user_session_path
       fill_in("Email", :with => "#{@user.email}")
       fill_in("Password", :with => "#{@user.password}")
@@ -22,13 +21,16 @@ feature "Articles", %q{
       visit new_user_presentation_topic_path(@user)
       fill_in("Title", :with => "New Mac")
       fill_in("Description", :with => "Its on the rise")
-      fill_in("Duration (in minutes)", :with => 33)
+      fill_in("Presentation Duration (in minutes)", :with => 33)
       click_button("Create Presentation topic")
       page.should have_content("You have posted a Presentation Topic successfully ! ")
 
       visit presentation_topics_path
-      # click_link("New Mac")
-      #       sleep(5)
+      click_link("New Mac")
+      click_link("Interesting?? Vote for This !")
+      page.should have_content("You have voted for this topic ! ")
+      User.last.votes_remaining.should == 4
+      PresentationTopic.last.votes.should == 1
     end
 
   end

@@ -4,7 +4,7 @@ class PresentationTopic < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :description, :presence => true
-  validates :duration, :presence => true, :numericality => true
+  validates :duration, :presence => true, :numericality => { :less_than_or_equal_to => 60 }
 end
 
 # == Schema Information

@@ -2,19 +2,20 @@
     <div class="spacer"></div>
 
     <div class="item">
-        <p>topic ko show</p>
-
+        <% if current_user.id == @presentation_topic.user_id %>
+            <%= link_to "Edit Post", edit_user_presentation_topic_path(@user, @presentation_topic)%><br/><br/>
+        <% end %>
         <% user = User.find(@presentation_topic.user_id) %>
-        Posted By : <%= user.email %><br/>
+        <p>
+        Posted By : <%= user.email %>   |
+        <%= link_to "Interesting?? Vote for This !", user_presentation_topic_vote_path(user,@presentation_topic) %>
+        </p>
 
-        <%= link_to "Interesting?? Vote for This !", user_presentation_topic_vote_path(user,@presentation_topic) %> <br/>
-
-        Title: <%= @presentation_topic.title %> <br/>
-        Duration: <%= @presentation_topic.duration %> minutes <br/>
-        Description: <%= @presentation_topic.description %> <br/>
-
-        Updated : <%= @presentation_topic.updated_at.to_s(:short) %> <br/>
-        Total Votes : <%= @presentation_topic.votes %> <br/>
+        <p>Title: <%= @presentation_topic.title %></p> <br/>
+        <p>Duration:  <%= @presentation_topic.duration %> minutes</p> <br/>
+        <p>Description: <%= @presentation_topic.description %></p> <br/>
+        <p>Updated : <%= @presentation_topic.updated_at.to_s(:short) %></p> <br/>
+        <p>Total Votes : <%= @presentation_topic.votes %></p> <br/>
     </div>
 
 

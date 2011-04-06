@@ -26,6 +26,21 @@ class PresentationTopicsController < ApplicationController
     @presentation_topic = @user.presentation_topics.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:user_id])
+    @presentation_topic = @user.presentation_topics.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:user_id])
+    @presentation_topic = @user.presentation_topics.find(params[:id])
+    if @presentation_topic.update_attributes(params[:presentation_topic])
+        redirect_to(user_presentation_topic_path(@user,@presentation_topic), :notice => 'Your Post was updated successfully.')
+    else
+      render :action => "edit"
+    end
+  end
+
   def destroy
   end
 
@@ -38,15 +53,19 @@ class PresentationTopicsController < ApplicationController
     @user = User.find(params[:user_id])
     @presentation_topic = @user.presentation_topics.find(params[:presentation_topic_id])
 
-    if @user.votes_remaining > 0
-      @presentation_topic.votes += 1
-      if @presentation_topic.update_attributes(params[:presentation_topic])
-        @user.votes_remaining -= 1
-        @user.update_attributes(params[:user])
-        redirect_to user_presentation_topic_path(@user,@presentation_topic), :notice => "You have voted for this topic ! "
-      end
+    if current_user.id == @presentation_topic.user_id
+      redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You CANNOT Vote for your own Topic !! "
     else
-      redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You've No Votes Remaining !! "
+      if current_user.votes_remaining > 0
+          @presentation_topic.votes += 1
+          if @presentation_topic.update_attributes(params[:presentation_topic])
+            current_user.votes_remaining -= 1
+            current_user.update_attributes(params[:user])
+            redirect_to user_presentation_topic_path(@user,@presentation_topic), :notice => "You have voted for this topic ! "
+          end
+      else
+        redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You've No Votes Remaining !! "
+      end
     end
   end
 
