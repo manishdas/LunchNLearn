@@ -14,7 +14,7 @@
         <p>Title: <%= @presentation_topic.title %></p> <br/>
         <p>Duration:  <%= @presentation_topic.duration %> minutes</p> <br/>
         <p>Description: <%= @presentation_topic.description %></p> <br/>
-        <p>Updated : <%= @presentation_topic.updated_at.to_s(:short) %></p> <br/>
+        <p>Updated : <%= time_ago_in_words(@presentation_topic.updated_at) %> ago</p> <br/>
         <p>Total Votes : <%= @presentation_topic.votes %></p> <br/>
     </div>
 

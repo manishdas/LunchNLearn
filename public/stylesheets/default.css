@@ -19,7 +19,7 @@ a {color: #36C;}
 a:hover {color: #06F;}
 
 body {
-  background: #4E5D3C url(../images/bg.jpg);
+/*  background: #4E5D3C url(../images/bg.jpg);*/
   color: #444;
   font: normal 62.5% "Lucida Sans Unicode",sans-serif;
   margin: 0;
@@ -48,9 +48,41 @@ blockquote p {padding: 6px;}
 /* misc */
 .clearer {clear: both;}
 
-.left {float: left;}
-
-.right {float: right;}
+.left {
+  background: url(../images/bgcontainer.jpg) ;
+  margin: 0 auto;
+  margin-top: 15px ;
+  margin-bottom: 30px ;
+  float: left;
+  border: solid 1px #89A973 ;
+  padding: 10px ;
+  width: 230px;
+}
+.item li {
+  margin-bottom: 10px ;
+  margin-left: 30px;
+}
+.item p {
+  margin-bottom: 10px ;
+  margin-left: 40px;
+}
+.item h4 {
+  margin-bottom: 10px ;
+  margin-left: 20px;
+}
+.item a:hover,.navigation #selected {
+  color: #2C3111;
+}
+.right {
+  background: url(../images/bgcontainer.jpg) ;
+  margin: 0 auto;
+  margin-top: 15px ;
+  margin-bottom: 30px ;
+  float: right;
+  border: solid 1px #89A973 ;
+  padding: 10px ;
+  width: 230px;
+}
 
 img.left {margin: 0 18px 6px 0;}
 

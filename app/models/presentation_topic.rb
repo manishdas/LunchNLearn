@@ -2,6 +2,8 @@ class PresentationTopic < ActiveRecord::Base
 
   belongs_to :user
 
+  scope :latest_topics, :order => "updated_at DESC"
+
   validates :title, :presence => true
   validates :description, :presence => true
   validates :duration, :presence => true, :numericality => { :less_than_or_equal_to => 60 }

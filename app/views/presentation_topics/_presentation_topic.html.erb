@@ -2,4 +2,5 @@
     <% user = User.find(presentation_topic.user_id) %>
     <li> <%= link_to presentation_topic.title, user_presentation_topic_path(user,presentation_topic) %> </li>
     posted by : <%=user.email %>
+    Updated: <%= time_ago_in_words(presentation_topic.updated_at) %> ago
 </ul>

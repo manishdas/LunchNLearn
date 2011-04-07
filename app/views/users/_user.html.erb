@@ -1,7 +1,11 @@
-<ul>
-    Speaker: <%= link_to user.email, user_topics_index_path(user)%>
-    <% user.presentation_topics.each do |topic| %>
-        <li> <%= link_to topic.title, user_presentation_topic_path(user,topic) %> </li>
-    <% end %>
-    <%= link_to "See All", user_topics_index_path(user) %>
-</ul>
+<% if(user.presentation_topics.size > 0) %>
+   <div class = "<%= cycle("left", "right") %>" >
+       <h4>Speaker: <%= link_to user.email, user_topics_index_path(user)%></h4>
+       <% user.presentation_topics.each do |topic| %>
+       <li> <%= link_to topic.title, user_presentation_topic_path(user,topic) %> </li>
+       <p>Updated: <%= time_ago_in_words(topic.updated_at) %> ago<p>
+       <% end %>
+       <p><%= link_to "See All", user_topics_index_path(user) %></p>
+   </div>
+<% end %>
+

@@ -3,7 +3,7 @@ class PresentationTopicsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @presentation_topics =  PresentationTopic.all
+    @presentation_topics =  PresentationTopic.latest_topics
   end
 
   def new
