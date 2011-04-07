@@ -42,6 +42,13 @@ class PresentationTopicsController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:user_id])
+    @presentation_topic = @user.presentation_topics.find(params[:id])
+    if @presentation_topic.destroy
+      redirect_to user_topics_index_path(@user), :notice => "Topic Deleted !"
+    else
+      redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => "Unable to Delete! Please Try Again."
+    end
   end
 
   def topics_index

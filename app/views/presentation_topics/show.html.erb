@@ -3,7 +3,8 @@
 
     <div class="item">
         <% if current_user.id == @presentation_topic.user_id %>
-            <%= link_to "Edit Post", edit_user_presentation_topic_path(@user, @presentation_topic)%><br/><br/>
+            <%= link_to "Edit Topic Content", edit_user_presentation_topic_path(@user, @presentation_topic)%><br/>
+            <%= link_to "Delete Topic", user_presentation_topic_path(@user, @presentation_topic), :method => :delete, :confirm => "Delete! Are you sure ? "%><br/>
         <% end %>
         <% user = User.find(@presentation_topic.user_id) %>
         <p>
