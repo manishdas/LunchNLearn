@@ -1,16 +1,15 @@
-<h4>Fill Presentation Details: </h4><br/>
+<div class="title">Fill Presentation Details</div>
+<div class = "topic_form">
+    <%= semantic_form_for ([@user,@presentation_topic]) do |form| %>
+    <div class = "form_fields">
+        <%= form.inputs :presentation_topic => "Basic" do %>
+        <%= form.input :title , :input_html => { :class => 'autogrow'} %>
+        <%= form.input :description , :input_html => { :class => 'autogrow', :rows => 5} %>
+        <%= form.input :duration , :label => "Presentation Duration (in minutes)" %>
 
-<%= semantic_form_for ([@user,@presentation_topic]) do |form| %>
+        <%= form.commit_button %>
 
-<%= form.inputs :presentation_topic => "Basic" do %>
-<%= form.input :title , :input_html => { :class => 'autogrow'} %>
-<%= form.input :description , :input_html => { :class => 'autogrow', :rows => 5} %>
-<%= form.input :duration , :label => "Presentation Duration (in minutes)" %>
-
-<%= form.commit_button %>
-
-
-<% end %>
-
-<% end %>
-
+        <% end %>
+    </div>
+    <% end %>
+</div>

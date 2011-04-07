@@ -49,6 +49,7 @@ blockquote p {padding: 6px;}
 .clearer {clear: both;}
 
 .left {
+  border-radius: 15px;
   background: url(../images/bgcontainer.jpg) ;
   margin: 0 auto;
   margin-top: 15px ;
@@ -59,21 +60,100 @@ blockquote p {padding: 6px;}
   width: 230px;
 }
 .item li {
-/*  margin-bottom: 10px ;*/
   margin-left: 30px;
+  padding: 5px ;
+}
+.item li label{
+  font-weight: bold;
+}
+.item ul li h4 label{
+  margin-left: 15px;
+}
+.speaker_email{
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 13px;
+}
+.speakers_main_title{
+  text-align:center;
+  margin-bottom:10px;
+  margin-top:10px;
+  font-size:19px;
+  font-family: Fantasy, helvetica, calibri, arial, sans-serif;
+}
+.item li h4 .vote{
+  float:right;
+  color: #A77B2A;
+  font-size:14px;
 }
 .item p {
   margin-bottom: 10px ;
   margin-left: 50px;
 }
+.item p label{
+  font-weight: bold;
+/*  margin-left: 50px;*/
+}
+.topic_details{
+  border-radius: 15px;
+  background: url(../images/bgcontainer.jpg) ;
+  margin: 0 auto;
+  margin-top: 15px ;
+  margin-bottom: 30px ;
+  padding: 10px;
+  font-size: 13px;
+  border: solid 1px #89A973 ;
+}
+.sign_up{
+  border-radius: 15px;
+  background: url(../images/bgcontainer.jpg) ;
+  margin: 0 auto;
+  margin-top: 15px ;
+  margin-bottom: 30px ;
+  padding: 10px;
+  font-size: 13px;
+  border: solid 1px #89A973 ;
+}
+.sign_in{
+  border-radius: 15px;
+  background: url(../images/bgcontainer.jpg) ;
+  margin: 0 auto;
+  margin-top: 15px ;
+  margin-bottom: 30px ;
+  padding: 10px;
+  font-size: 13px;
+  border: solid 1px #89A973 ;
+}
+.topic_form{
+  border-radius: 15px;
+  background: url(../images/bgcontainer.jpg) ;
+  margin: 0 auto;
+  margin-top: 15px ;
+  margin-bottom: 30px ;
+  padding: 10px;
+  font-size: 13px;
+  border: solid 1px #89A973 ;
+}
+.links{
+  margin-left:40px;
+}
+.presentation_title{
+  text-align:center;
+  margin-bottom:10px;
+  margin-top:10px;
+  font-size:20px;
+  font-family: sans-serif, helvetica, calibri, arial, sans-serif;
+  padding: 10px;
+}
 .item h4 {
   margin-bottom: 10px ;
-  margin-left: 20px;
+/*  margin-left: 20px ;*/
 }
 .item a:hover,.navigation #selected {
   color: #2C3111;
 }
 .right {
+  border-radius: 15px;
   background: url(../images/bgcontainer.jpg) ;
   margin: 0 auto;
   margin-top: 15px ;
@@ -84,14 +164,13 @@ blockquote p {padding: 6px;}
   width: 230px;
 }
 .item ul{
+  border-radius: 15px;
   background: url(../images/bgcontainer.jpg) ;
   margin: 0 auto;
   margin-top: 15px ;
   margin-bottom: 30px ;
-/*  float: right;*/
   border: solid 1px #89A973 ;
   padding: 10px ;
-/*  width: 500px;*/
 }
 
 img.left {margin: 0 18px 6px 0;}
@@ -208,12 +287,14 @@ img.left {margin: 0 18px 6px 0;}
   clear: both;
   overflow:hidden ;
 }
-
+.form_fields{
+  margin-left:20px;
+}
 .item img {border: 1px dashed #8A6;}
 
 .item .title {
   color: #445044;
-  font: normal 2em serif;
+  font: normal 2em Fantasy ;
 }
 
 .item .title:first-letter {

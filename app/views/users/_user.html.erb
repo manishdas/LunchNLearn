@@ -1,6 +1,6 @@
 <% if(user.presentation_topics.size > 0) %>
    <div class = "<%= cycle("left", "right") %>" >
-       <h4>Speaker: <%= link_to user.email, user_topics_index_path(user)%></h4>
+       <span class="speaker_email"><%= link_to user.email, user_topics_index_path(user)%></span>
        <% user.presentation_topics.latest_topics.first(3).each do |topic| %>
        <li> <%= link_to topic.title, user_presentation_topic_path(user,topic) %> </li>
        <p>Updated: <%= time_ago_in_words(topic.updated_at) %> ago<p>
@@ -8,4 +8,3 @@
        <p><%= link_to "See All", user_topics_index_path(user) %></p>
    </div>
 <% end %>
-

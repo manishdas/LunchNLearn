@@ -1,22 +1,21 @@
-<div class = "content">
+“<div class = "content">
     <div class="spacer"></div>
 
     <div class="item">
         <% if current_user.id == @presentation_topic.user_id %>
-            <%= link_to "Edit Topic Content", edit_user_presentation_topic_path(@user, @presentation_topic)%><br/>
-            <%= link_to "Delete Topic", user_presentation_topic_path(@user, @presentation_topic), :method => :delete, :confirm => "Delete! Are you sure ? "%><br/>
+        <%= link_to "Edit Topic Content", edit_user_presentation_topic_path(@user, @presentation_topic)%><br/>
+        <%= link_to "Delete Topic", user_presentation_topic_path(@user, @presentation_topic), :method => :delete, :confirm => "Delete! Are you sure ? "%><br/>
         <% end %>
+        <div class = "title"><%= @presentation_topic.title %></div>
         <% user = User.find(@presentation_topic.user_id) %>
-        <p>
-        Posted By : <%= user.email %>   |
         <%= link_to "Interesting?? Vote for This !", user_presentation_topic_vote_path(user,@presentation_topic) %>
-        </p>
-
-        <p>Title: <%= @presentation_topic.title %></p> <br/>
-        <p>Duration:  <%= @presentation_topic.duration %> minutes</p> <br/>
-        <p>Description: <%= @presentation_topic.description %></p> <br/>
-        <p>Updated : <%= time_ago_in_words(@presentation_topic.updated_at) %> ago</p> <br/>
-        <p>Total Votes : <%= @presentation_topic.votes %></p> <br/>
+        <div class = "topic_details">
+            <p><label>Posted By : </label><%= user.email %></p>
+            <p><label>Duration: </label><%= @presentation_topic.duration %> minutes</p>
+            <p><label>Description: </label><%= @presentation_topic.description %></p>
+            <p><label>Updated : </label><%= time_ago_in_words(@presentation_topic.updated_at) %> ago</p>
+            <p><label>Total Votes : </label><%= @presentation_topic.votes %></p>
+        </div>
     </div>
 
 

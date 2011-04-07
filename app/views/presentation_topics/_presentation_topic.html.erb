@@ -1,7 +1,18 @@
 <ul type = "none">
     <% user = User.find(presentation_topic.user_id) %>
-    <li> <%= link_to presentation_topic.title, user_presentation_topic_path(user,presentation_topic) %> </li>
-    <li>posted by : <%=user.email %></li>
-    <li>Updated: <%= time_ago_in_words(presentation_topic.updated_at) %> ago</li>
-    <li>Description: <%= presentation_topic.description.truncate(200) %></li>
+    <li>
+        <h4>
+            <%= link_to presentation_topic.title, user_presentation_topic_path(user,presentation_topic) %>
+            <label>Posted By : </label><%=user.email %>
+            <span class = "vote">Votes : <%=presentation_topic.votes %> </span>
+        </h4>
+    </li>
+    <li>
+        <label>Updated :</label>
+        <%= time_ago_in_words(presentation_topic.updated_at) %> ago
+    </li>
+    <li>
+        <label>Description :</label>
+        <%= presentation_topic.description.truncate(150) %>
+    </li>
 </ul>

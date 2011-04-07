@@ -5,6 +5,7 @@
             <div class="metadata">You need to sign up before continuing !</div>
         </div>
         <div class="item">
+        <div class = "sign_up">
 
             <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
                 <%= devise_error_messages! %>
@@ -25,4 +26,5 @@
             <% end %>
 
             <%= render :partial => "devise/shared/links" %>
+            </div>
         </div>

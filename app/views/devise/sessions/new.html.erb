@@ -5,7 +5,7 @@
             <div class="metadata">You need to sign in before continuing !</div>
         </div>
         <div class="item">
-
+            <div class = "sign_in">
             <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
                 <p><%= f.label :email %><br />
                 <%= f.email_field :email %></p>
@@ -21,4 +21,5 @@
             <% end %>
 
             <%= render :partial => "devise/shared/links" %>
+            </div>
         </div>
