@@ -1,9 +1,7 @@
 <div class = "content">
     <div class="spacer"></div>
-
     <div class="item">
         <div class="title"> All Topics By "<%= @user.email %>" </div>
         <%= render @presentation_topics %>
     </div>
-
     <%= link_to "Back to Index", users_path %>

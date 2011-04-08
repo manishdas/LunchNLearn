@@ -1,3 +1,6 @@
-
-$(".notice").html("<%= my_helper_function(@presentation_topic,current_user) %>");
-
+$(".notice").hide();
+$(".alert").hide();
+$(".<%= @message["type"] %>").html("<%= @message["text"] %>");
+$(".<%= @message["type"] %>").show();
+$(".topic_votes").html("<%= @presentation_topic.votes %>");
+$(".votes_remaining").html("<%= current_user.votes_remaining %>");

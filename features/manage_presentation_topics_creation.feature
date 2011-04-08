@@ -6,7 +6,7 @@ Feature: Manage New Presentation Topics Creation
   @javascript
     Scenario: Register new presentation_topics_creation
       Given I am authenticated
-      And I follow "Wanna Speak? Post a topic"
+      And I follow "speak_up_button"
       And I fill in "Title" with "html 5"
       And I fill in "Description" with "html 5 with css 3"
       And I fill in "Presentation Duration (in minutes)" with "25"

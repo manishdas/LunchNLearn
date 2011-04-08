@@ -20,10 +20,5 @@ class UsersController < ApplicationController
       render "new"
     end
   end
-  #
-  # def show
-  #   @user = current_user
-  # end
-  #
 
 end

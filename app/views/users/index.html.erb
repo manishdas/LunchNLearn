@@ -2,8 +2,8 @@
     <div class="spacer"></div>
 
     <div class="item">
-        <%= link_to "Wanna Speak? Post a topic" , new_user_presentation_topic_path(@user) %> <br/>
-        <%= link_to "View all topics" , presentation_topics_path %> <br/>
-        <div class ="speakers_main_title">"Your SPEAKERS for The Week"</div>
+        <h3>WANNA SPEAK ? Post a Topic</h3><span class = "speak_up_image"><%= link_to image_tag("speakup.png",:height => "15%") , new_user_presentation_topic_path(@user), :id=>"speak_up_button" %> </span>
+        <div class = "view_all_image"><%= link_to image_tag("view all.gif",:height => "3%"), presentation_topics_path %> </div>
+        <div class ="speakers_main_title">"SPEAKERS for The Week"</div>
         <%= render @users %>
     </div>

@@ -35,7 +35,7 @@ class PresentationTopicsController < ApplicationController
     @user = User.find(params[:user_id])
     @presentation_topic = @user.presentation_topics.find(params[:id])
     if @presentation_topic.update_attributes(params[:presentation_topic])
-        redirect_to(user_presentation_topic_path(@user,@presentation_topic), :notice => 'Your Post was updated successfully.')
+      redirect_to(user_presentation_topic_path(@user,@presentation_topic), :notice => 'Your Post was updated successfully.')
     else
       render :action => "edit"
     end
@@ -59,29 +59,24 @@ class PresentationTopicsController < ApplicationController
   def vote
     @user = User.find(params[:user_id])
     @presentation_topic = @user.presentation_topics.find(params[:presentation_topic_id])
-
-    respond_to do |format|
-    # , :only => :vote
-       # def vote
-       #         respond_with(@user,@presentation_topic)
-       #        end
-       format.html { redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You've NO VOTES Remaining !! " }
-              format.js
+    if current_user == @presentation_topic.user
+      @message = {"type" => "alert", "text" => " You CANNOT VOTE for your own Topic !! "}
+    else
+      if current_user.votes_remaining > 0
+        @presentation_topic.votes += 1
+        @presentation_topic.update_attributes(params[:presentation_topic])
+        current_user.votes_remaining -= 1
+        current_user.update_attributes(params[:user])
+        @message = {"type" => "notice", "text" => "You've VOTED for this Topic ! "}
+      else
+        @message = {"type" => "alert", "text" => " You've NO VOTES Remaining !! "}
+      end
     end
 
-    # if current_user.id == @presentation_topic.user_id
-    #       redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You CANNOT VOTE for your own Topic !! "
-    #     else
-    #       if current_user.votes_remaining > 0
-    #           @presentation_topic.votes += 1
-    #           @presentation_topic.update_attributes(params[:presentation_topic])
-    #           current_user.votes_remaining -= 1
-    #           current_user.update_attributes(params[:user])
-    #           redirect_to user_presentation_topic_path(@user,@presentation_topic), :notice => "You've VOTED for this Topic ! "
-    #       else
-    #         redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You've NO VOTES Remaining !! "
-    #       end
-    #     end
+    respond_to do |format|
+      format.html { redirect_to user_presentation_topic_path(@user,@presentation_topic) }
+      format.js
+    end
   end
 
 

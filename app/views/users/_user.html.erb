@@ -1,6 +1,6 @@
 <% if(user.presentation_topics.size > 0) %>
    <div class = "<%= cycle("left", "right") %>" >
-       <span class="speaker_email"><%= link_to user.email, user_topics_index_path(user)%></span>
+       <span class="speaker_email"><%= user.username %> | <%= link_to user.email, user_topics_index_path(user)%> | Speaks on</span>
        <% user.presentation_topics.latest_topics.first(3).each do |topic| %>
        <li> <%= link_to topic.title, user_presentation_topic_path(user,topic) %> </li>
        <p>Created: <%= time_ago_in_words(topic.created_at) %> ago<p>

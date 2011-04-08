@@ -10,7 +10,7 @@
         <% user = User.find(@presentation_topic.user_id) %>
 
         <div class = "vote_button">
-            <%= link_to image_tag("vote_button.gif"), user_presentation_topic_vote_path(user,@presentation_topic), :remote => true %>
+            <%= link_to image_tag("vote_button.gif"), user_presentation_topic_vote_path(user,@presentation_topic),:id=>"vote_button", :remote => true %>
         </div>
 
         <div class = "topic_details">
@@ -18,11 +18,9 @@
             <p><label>Duration: </label><%= @presentation_topic.duration %> minutes</p>
             <p><label>Description: </label><pre><%= @presentation_topic.description %></pre></p>
             <p><label>Updated : </label><%= time_ago_in_words(@presentation_topic.updated_at) %> ago</p>
-            <p><label>Total Votes : </label><%= @presentation_topic.votes %></p>
+            <p><label>Total Votes : </label><span class = "topic_votes"><%= @presentation_topic.votes %></span></p>
         </div>
     </div>
 
-
     <%= link_to "Back to Index", users_path %> <br/>
-
     <%= link_to "See #{user.email}'s all topics", user_topics_index_path(user) %>

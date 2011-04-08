@@ -4,12 +4,12 @@
         <h4>
             <%= link_to presentation_topic.title, user_presentation_topic_path(user,presentation_topic) %>
             <label>Posted By : </label><%=user.email %>
-            <span class = "vote">Votes : <%=presentation_topic.votes %> </span>
+            <span class = "vote"><span class = "vote_no"> <%=presentation_topic.votes %> </span>Votes</span>
         </h4>
     </li>
     <li>
-        <label>Updated :</label>
-        <%= time_ago_in_words(presentation_topic.updated_at) %> ago
+        <label>Created :</label>
+        <%= time_ago_in_words(presentation_topic.created_at) %> ago
     </li>
     <li>
         <label>Description :</label>

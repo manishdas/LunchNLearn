@@ -27,10 +27,10 @@ feature "Articles", %q{
 
       visit presentation_topics_path
       click_link("New Mac")
-      click_link("Interesting?? Vote for This !")
-      page.should have_content("You have voted for this topic ! ")
-      User.last.votes_remaining.should == 4
-      PresentationTopic.last.votes.should == 1
+      click_link("vote_button")
+      page.should have_content(" You CANNOT VOTE for your own Topic !! ")
+      User.last.votes_remaining.should == 5
+      PresentationTopic.last.votes.should == 0
     end
 
   end
