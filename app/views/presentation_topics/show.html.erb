@@ -1,4 +1,4 @@
-“<div class = "content">
+<div class = "content">
     <div class="spacer"></div>
 
     <div class="item">
@@ -8,11 +8,15 @@
         <% end %>
         <div class = "title"><%= @presentation_topic.title %></div>
         <% user = User.find(@presentation_topic.user_id) %>
-        <%= link_to "Interesting?? Vote for This !", user_presentation_topic_vote_path(user,@presentation_topic) %>
+
+        <div class = "vote_button">
+            <%= link_to image_tag("vote_button.gif"), user_presentation_topic_vote_path(user,@presentation_topic), :remote => true %>
+        </div>
+
         <div class = "topic_details">
             <p><label>Posted By : </label><%= user.email %></p>
             <p><label>Duration: </label><%= @presentation_topic.duration %> minutes</p>
-            <p><label>Description: </label><%= @presentation_topic.description %></p>
+            <p><label>Description: </label><pre><%= @presentation_topic.description %></pre></p>
             <p><label>Updated : </label><%= time_ago_in_words(@presentation_topic.updated_at) %> ago</p>
             <p><label>Total Votes : </label><%= @presentation_topic.votes %></p>
         </div>

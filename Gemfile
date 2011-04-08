@@ -11,6 +11,7 @@ gem 'irbtools'
 gem 'annotate'
 gem 'formtastic' , '~>1.2.0'
 gem 'devise'
+gem 'jquery-rails'
 
 group :test do
   gem 'rspec-rails'

@@ -47,7 +47,11 @@ blockquote p {padding: 6px;}
 
 /* misc */
 .clearer {clear: both;}
-
+.vote_button{
+  float: right;
+  margin-top: 20px;
+  border:none;
+}
 .left {
   border-radius: 15px;
   background: url(../images/bgcontainer.jpg) ;
@@ -57,7 +61,8 @@ blockquote p {padding: 6px;}
   float: left;
   border: solid 1px #89A973 ;
   padding: 10px ;
-  width: 230px;
+  width: 300px;
+  height: 220px;
 }
 .item li {
   margin-left: 30px;
@@ -103,6 +108,13 @@ blockquote p {padding: 6px;}
   padding: 10px;
   font-size: 13px;
   border: solid 1px #89A973 ;
+}
+.topic_details pre{
+    margin-left: 30px ;
+    padding: 15px;
+    font-size: 15px;
+    word-wrap: break-word;
+    font-family: Times-New-Roman;
 }
 .sign_up{
   border-radius: 15px;
@@ -161,7 +173,8 @@ blockquote p {padding: 6px;}
   float: right;
   border: solid 1px #89A973 ;
   padding: 10px ;
-  width: 230px;
+  height: 220px;
+  width: 300px;
 }
 .item ul{
   border-radius: 15px;
@@ -187,11 +200,11 @@ img.left {margin: 0 18px 6px 0;}
   margin: 0 auto;
   margin-top: 15px ;
   margin-bottom: 15px ;
-  width: 736px;
+  width: 836px;
 }
 
 .gfx {
-  background: url(../images/gfx.jpg) no-repeat;
+/*  background: url(../images/gfx.jpg) no-repeat;*/
   float: left;
   height: 140px;
   margin-top: 12px;
@@ -202,14 +215,14 @@ img.left {margin: 0 18px 6px 0;}
   background: url(../images/bgcontent.gif) no-repeat 0 -4%;
   float: left;
   text-align: center;
-  width: 632px;
+  width: 732px;
 }
 
 .header {
   background: #56644A url(../images/header.jpg) no-repeat;
   color: #FFC;
   font-size: 1.4em;
-  height: 232px;
+  height: 230px;
   padding-right: 270px;
 }
 
@@ -322,7 +335,7 @@ img.left {margin: 0 18px 6px 0;}
   line-height: 41px;
   margin: 0 auto;
   text-align: center;
-  width: 632px;
+  width: 732px;
 }
 
 .footer a {
@@ -333,4 +346,12 @@ img.left {margin: 0 18px 6px 0;}
 .footer a:hover {
   color: #333;
   text-decoration: underline;
+}
+
+/*notice and alert*/
+.notice{
+  color:green ;
+}
+.alert{
+  color:red ;
 }

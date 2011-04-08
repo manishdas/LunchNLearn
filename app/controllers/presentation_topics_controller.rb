@@ -60,20 +60,29 @@ class PresentationTopicsController < ApplicationController
     @user = User.find(params[:user_id])
     @presentation_topic = @user.presentation_topics.find(params[:presentation_topic_id])
 
-    if current_user.id == @presentation_topic.user_id
-      redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You CANNOT Vote for your own Topic !! "
-    else
-      if current_user.votes_remaining > 0
-          @presentation_topic.votes += 1
-          if @presentation_topic.update_attributes(params[:presentation_topic])
-            current_user.votes_remaining -= 1
-            current_user.update_attributes(params[:user])
-            redirect_to user_presentation_topic_path(@user,@presentation_topic), :notice => "You have voted for this topic ! "
-          end
-      else
-        redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You've No Votes Remaining !! "
-      end
+    respond_to do |format|
+    # , :only => :vote
+       # def vote
+       #         respond_with(@user,@presentation_topic)
+       #        end
+       format.html { redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You've NO VOTES Remaining !! " }
+              format.js
     end
+
+    # if current_user.id == @presentation_topic.user_id
+    #       redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You CANNOT VOTE for your own Topic !! "
+    #     else
+    #       if current_user.votes_remaining > 0
+    #           @presentation_topic.votes += 1
+    #           @presentation_topic.update_attributes(params[:presentation_topic])
+    #           current_user.votes_remaining -= 1
+    #           current_user.update_attributes(params[:user])
+    #           redirect_to user_presentation_topic_path(@user,@presentation_topic), :notice => "You've VOTED for this Topic ! "
+    #       else
+    #         redirect_to user_presentation_topic_path(@user,@presentation_topic), :alert => " You've NO VOTES Remaining !! "
+    #       end
+    #     end
   end
+
 
 end
